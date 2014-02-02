@@ -1,0 +1,126 @@
+/* ==========================================================================
+   HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
+   ========================================================================== */
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    color: #222;
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.4;
+    background: black;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+.taco {
+    background: url("../img/yoav.png");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    width: 100%;
+    margin: 0 auto 0 auto;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+}
+
+.temp {
+    z-index: 2;
+    bottom: 5%;
+    position: absolute;
+    font-size: 800%;
+    margin-left: 20px;
+    color: white;
+    font-weight: 400;
+}
+
+.type {
+    font-size: 500%;
+    z-index: 2;
+    position: absolute;
+    bottom: 20%;
+    margin-left: 20px;
+    color: white;
+}
+
+.desc {
+    z-index: 10;
+    position: absolute; 
+    bottom: 2%;
+    right: 2%;
+    font-size: 150%;
+    color: white;
+    /*background: rgba(0, 0, 0, .5);*/
+    /*padding: 15px;*/
+}
+
+.desc p {
+    margin: 0;
+    text-align: right;
+}
+
+a, a:link, a:visited {
+    color: white;
+}
+
+.tweet {
+    z-index: 10;
+    position: absolute;
+    margin: 15px;
+}
+
+.city {
+    color: white;
+    z-index: 20;
+    position: absolute;
+    bottom: 50%;
+    left: 2%;
+    font-size: 300%;
+}
+
+.hide {display: none;}
+
+input { padding: 10px; }
+
+.wDefault { background: url(../img/weatherimg/defaultiguess.jpg) no-repeat center center fixed; }
+.wTStorm { background: url(../img/weatherimg/lightning.jpg) no-repeat center center fixed; }
+.wDrizzle { background: url(../img/weatherimg/drizzle.jpg) no-repeat center center fixed; }
+.wRain { background: url(../img/weatherimg/rain.jpg) no-repeat center center fixed; }
+.wLSnow { background: url(../img/weatherimg/lightsnow.jpg) no-repeat center center fixed; }
+.wHSnow { background: url(../img/weatherimg/heavysnow.jpg) no-repeat center center fixed; }
+.wHaze { background: url(../img/weatherimg/haze.jpg) no-repeat center center fixed; }
+.wClear { background: url(../img/weatherimg/clear.jpg) no-repeat center center fixed; }
+.wPCloud { background: url(../img/weatherimg/partlycloudy.jpg) no-repeat center center fixed; }
+.wMCloud { background: url(../img/weatherimg/mostlycloudy.jpg) no-repeat center center fixed; }
+.wOcast { background: url(../img/weatherimg/overcast.jpg) no-repeat center center fixed; }
+
+.bg {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 1600px) {
+
+    .temp { font-size: 400%; bottom: 80%; color: black; }
+    .type { font-size: 400%; bottom: 70%; color: black; }
+
+}
+
+@media only screen and (max-width: 400px) {
+    .taco { background-size: 100%; }
+    .temp { font-size: 400%; bottom: 80%; }
+    .type { font-size: 400%; bottom: 70%; }
+}
