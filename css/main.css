@@ -43,6 +43,13 @@ body {
     margin-left: 20px;
     color: white;
     font-weight: 400;
+    -webkit-text-stroke: 1px black;
+    text-shadow:
+        3px 3px 0 #000,
+      -1px -1px 0 #000,  
+       1px -1px 0 #000,
+       -1px 1px 0 #000,
+        1px 1px 0 #000;
 }
 
 .type {
@@ -51,7 +58,14 @@ body {
     position: absolute;
     bottom: 20%;
     margin-left: 20px;
-    color: white;
+    -webkit-text-stroke: 1px black;
+   color: white;
+   text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
 }
 
 .desc {
@@ -87,6 +101,13 @@ a, a:link, a:visited {
     bottom: 50%;
     left: 2%;
     font-size: 300%;
+    -webkit-text-stroke: 1px black;
+    text-shadow:
+        3px 3px 0 #000,
+      -1px -1px 0 #000,  
+       1px -1px 0 #000,
+       -1px 1px 0 #000,
+        1px 1px 0 #000;
 }
 
 .hide {display: none;}
@@ -110,12 +131,15 @@ input { padding: 10px; }
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    color: white;
 }
 
+
+/* TODO: Change color based on image */
 @media only screen and (max-width: 1600px) {
 
-    .temp { font-size: 400%; bottom: 80%; color: black; }
-    .type { font-size: 400%; bottom: 70%; color: black; }
+    .temp { font-size: 400%; bottom: 80%; }
+    .type { font-size: 400%; bottom: 70%; }
 
 }
 

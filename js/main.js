@@ -26,6 +26,8 @@ function getLocation(){
     }, { enableHighAccuracy: false, timeout: 1000, maximumAge: 1000 });
 }
 
+
+// http://openweathermap.org/ is awesome, A++ would weather again.
 function getWeather (lat, lng, city) {
 	console.log("Getting weather");
 	if(city != null){
