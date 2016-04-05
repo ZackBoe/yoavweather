@@ -1,0 +1,169 @@
+// bower:scss
+// endbower
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,300);
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  background:  url('../images/yoav.png') no-repeat center center, url('../images/bg.jpg') no-repeat fixed;
+  background-position: center bottom, center center;
+  // background: black;
+  background-size: auto 400px, cover;
+  height: 100%;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #3c3c3c;
+  overflow: hidden;
+}
+
+// Loading animation
+.loader {
+  width: 0;
+  height: 0;
+  right: 0;
+  position: absolute;
+  border-style: solid;
+  border-width: 100px 0 0 100px;
+  border-color: white transparent transparent transparent;
+
+ .sk-double-bounce {
+    position: absolute;
+    top: -90px;
+    right: 10px;
+    margin: 0;
+  }
+}
+
+.deg { font-size: 80%; vertical-align: text-top; }
+
+// Info block
+.info {
+  text-transform: uppercase;
+  font-size: 90%;
+  text-align: center;
+
+  a, a:visited {
+    color: white;
+  }
+}
+
+// Forecast Styles
+.forecast {
+  opacity: 0;
+  font-family: 'Lato', sans-serif;
+  width: 325px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: absolute;
+  bottom: 0;
+  color: white;
+  padding: 10px;
+  transition: opacity 0.2s ease;
+
+  section { width: 100%; }
+
+
+  h1 { margin: 0; font-weight: 400; }
+
+  .icon {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    padding-top: 5px;
+    margin-left: 10px;
+  }
+
+  .temp {
+    display: inline-block;
+    padding-top: 20px;
+    font-size: 3em;
+
+    &:after {
+      content: 'and';
+      padding-left: 10%;
+      font-weight: 200;
+      font-size: 90%;
+    }
+  }
+
+  .summary {
+    width: 275px;
+    margin: 0;
+    padding: 15px 0 15px;
+    font-size: 2.5em;
+  }
+
+  .city {
+
+    &:before {}
+  }
+
+  svg {fill: currentColor;}
+
+}
+
+// Off-canvas full forecast
+.off {
+  overflow: hidden;
+  left: -325px;
+  position: absolute;
+  width: 325px;
+  height: 100vh;
+  background: #374046;
+  transition: left .5s ease;
+
+  section {
+    border-bottom: 1px solid white;
+    margin-bottom: 10px;
+  }
+
+  .forecast .currently h1 { text-transform: uppercase; }
+  .forecast .summary { font-size: 1.5em; }
+
+  .toggle-label { text-align: center; }
+}
+
+// Off-canvas toggle
+.toggle { display: none; }
+.toggle-label {
+  color: white;
+  width: 100%;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+
+.toggle:checked ~ .off {
+	left: 0;
+}
+
+
+@media all and (max-width: 1000px) {
+    html { background-position: right bottom, center center;
+
+      transition: background-position 0.5s ease; }
+}
+
+@media all and (max-width: 700px) {
+
+  .toggle:checked ~ .off {
+  	width: 100%;
+  }
+
+  .forecast {
+    width: 100%;
+
+    h1, .temp:after, .toggle-label, p { font-weight: 600; }
+
+  }
+
+}

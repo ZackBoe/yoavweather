@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=1;" />
+    <title>yoavweather</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/normalize-css/normalize.css" />
+    <link rel="stylesheet" href="/bower_components/SpinKit/css/spinkit.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+  <div class="loader">
+    <div class="sk-double-bounce">
+      <div class="sk-child sk-double-bounce1"></div>
+      <div class="sk-child sk-double-bounce2"></div>
+    </div>
+  </div>
+
+
+
+  <div class="forecast">
+
+    <section class="currently">
+      <h1>In <span class="city"></span>, it's</h1>
+      <span class="temp"></span>
+      <span class="icon"></span>
+      <p class="summary"></p>
+    </section>
+
+    <label class="toggle-label" for="checkbox">Show Full Forecast &amp; Info</label>
+
+  </div>
+
+
+    <input class="toggle" type="checkbox" id="checkbox" autocomplete="off"/>
+
+    <div class="off">
+
+      <div class="forecast">
+
+        <section class="info">
+          <p><a href="https://github.com/zackboe/yoavweather">OSS</a> by
+            <a href="https://zackboehm.com">Zack Boehm</a> for Yoav</p>
+          <p>Inspired by a lack of sleep,
+            <a href="https://jakearchibald.github.io/isserviceworkerready/">Jake Archibald</a>,
+            and <a href="http://drakeweather.com/">Drake Weather</a></p>
+        </section>
+
+        <section class="next-day">
+          <h1>NEXT 24 HOURS:</h1>
+          <p class="summary"></p>
+        </section>
+
+        <section class="next-week">
+          <h1>NEXT 7 DAYS:</h1>
+          <p class="summary"></p>
+        </section>
+
+        <label class="toggle-label" for="checkbox">Hide Full Forecast &amp; Info</label>
+
+      </div>
+
+    </div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(w,u,t,r,a,i,n){w['GoogleAnalyticsObject']=a;w[a]=w[a]||function(){
+      (w[a].q=w[a].q||[]).push(arguments)},w[a].l=1*new Date();i=u.createElement(t),
+      n=u.getElementsByTagName(t)[0];i.async=1;i.src=r;n.parentNode.insertBefore(i,n)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UIDHERE', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/es6-promise/es6-promise.min.js"></script>
+    <script src="/bower_components/fetch/fetch.js"></script>
+    <script src="/bower_components/geolocator/src/geolocator.min.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- bower is funky and was doing funky things
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/es6-promise/es6-promise.min.js"></script>
+    <script src="/bower_components/fetch/fetch.js"></script>
+    <script src="/bower_components/geolocator/src/geolocator.min.js"></script>
+    -->
+
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/icons.js"></script>
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
