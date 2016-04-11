@@ -1,4 +1,5 @@
 node_modules
 bower_components
 .tmp
-app/images/climacons/*.svg
+climacons/*.svg
+dist
