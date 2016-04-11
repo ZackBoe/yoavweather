@@ -7,7 +7,7 @@ var haveGeo = false;
 //The callback function executed when the location is fetched successfully.
    function onGeoSuccess(location) {
        console.log(location); console.log(location.coords);
-       $('.city').text(location.address.city);
+       document.querySelectorAll('.city')[0].textContent = location.address.city;
        if(!haveGeo) { getForecast(location.coords); }
        haveGeo = true;
    }
@@ -18,18 +18,15 @@ var haveGeo = false;
 
    function displayForecast(forecast){
      console.log(forecast);
-     $('.loader').fadeOut();
-     $('.forecast').css('opacity', 1);
-     $('.currently .summary').text(forecast.currently.summary);
-     $('.currently .icon').html(icons[forecast.currently.icon]);
-     $('.currently .temp').html(forecast.currently.temperature.toString().split('.')[0] + '<span class="deg">°F</span>');
+     document.querySelectorAll('.loader')[0].style.opacity = 0;
+     document.querySelectorAll('.forecast')[0].style.opacity = 1;
+     document.querySelectorAll('.currently .summary')[0].textContent = forecast.currently.summary;
+     document.querySelectorAll('.currently .icon')[0].innerHTML = icons[forecast.currently.icon];
+     document.querySelectorAll('.currently .temp')[0].innerHTML = forecast.currently.temperature.toString().split('.')[0] + '<span class="deg">°F</span>';
 
-     $('.next-hour .summary').text(forecast.minutely.summary);
-     $('.next-hour .icon').html(icons[forecast.minutely.icon]);
+     document.querySelectorAll('.next-day .summary')[0].textContent = forecast.hourly.summary;
 
-     $('.next-day .summary').text(forecast.hourly.summary);
-
-     $('.next-week .summary').text(forecast.daily.summary);
+     document.querySelectorAll('.next-week .summary')[0].textContent = forecast.daily.summary;
 
    }
 

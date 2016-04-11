@@ -2,7 +2,6 @@
   "name": "yoavweather",
   "private": true,
   "dependencies": {
-    "jquery": "~2.1.1",
     "normalize-css": "normalize.css#^4.0.0",
     "SpinKit": "spinkit#^1.2.5",
     "es6-promise": "^3.2.1",
