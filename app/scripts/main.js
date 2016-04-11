@@ -3,6 +3,14 @@
 'use strict';
 var haveGeo = false;
 
+  if('serviceWorker' in navigator) {
+    console.log('Attempting ServiceWorker registration');
+    navigator.serviceWorker.register('sw.js').then(function(registration) {
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }).catch(function(err) {
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  }
 
   // Successfully got location
    function onGeoSuccess(location) {
@@ -59,4 +67,11 @@ var haveGeo = false;
    window.onload = function () {
        var geoOpts = { enableHighAccuracy: true, timeout: 10000, maximumAge: 600000 };
        geolocator.locate(onGeoSuccess, onGeoError, 2, geoOpts);
+
+       // Crude offline check. SW will never cache check.json
+       fetch('check.json').catch(function(){
+         document.querySelectorAll('.currently')[0].innerHTML = '<h2>It looks like you\'re offline. <br>Reconnect to get the latest forecast!</h2>' + document.querySelectorAll('.currently')[0].innerHTML;
+       });
+
+
    };
