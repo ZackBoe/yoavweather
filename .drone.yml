@@ -15,7 +15,7 @@ deploy:
     target: /home/yoav/public
     delete: false
     recursive: true
-  when:
+    when:
       event: push
 cache:
   mount:
