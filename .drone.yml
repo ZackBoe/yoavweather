@@ -1,0 +1,23 @@
+build:
+  image: node
+  commands:
+    - npm i -gq gulp
+    - npm i -q --only=dev
+    - gulp build
+    - ls dist
+  when:
+      event: push
+deploy:
+  rsync:
+    user: yoav
+    host: 45.55.58.43
+    source: dist
+    target: /home/yoav/public
+    delete: false
+    recursive: true
+  when:
+      event: push
+cache:
+  mount:
+    - node_modules
+    - .git
