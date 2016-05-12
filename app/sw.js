@@ -14,7 +14,7 @@
 
   toolbox.precache([
     '/index.html',
-    '/styles/main.css', '/styles/vendor.css',
+    '/styles/main.css',
     '/images/bg.jpg', '/images/yoav.png',
     '/scripts/main.js', '/scripts/vendor.js'
   ]);
