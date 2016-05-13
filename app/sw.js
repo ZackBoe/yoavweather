@@ -23,8 +23,8 @@
   toolbox.router.get('check.json', toolbox.networkOnly);
 
   // Use a dedicated cache for the forecast responses
-  toolbox.router.get('/yoav/weather/api*', toolbox.networkFirst, {
-    origin: 'https://zackboehm.com',
+  toolbox.router.get('*', toolbox.networkFirst, {
+    origin: 'https://api.weather.yoavraccah.com',
     cache: {
       name: 'forecast-data',
       maxEntries: 5,
