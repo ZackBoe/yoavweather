@@ -54,7 +54,7 @@ var haveGeo = false;
    // Grab forecast
    function getForecast(coords){
      var loc = coords.latitude + ',' + coords.longitude;
-     fetch('https://zackboehm.com/yoav/weather/api/?loc=' + loc)
+     fetch('https://api.weather.yoavraccah.com/?loc=' + loc)
      .then(function(response){
        if(response.ok){
          response.json().then( function(body){ displayForecast(body); });
