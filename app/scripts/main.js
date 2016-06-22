@@ -22,8 +22,8 @@ var haveGeo = false;
 
    // Hide loader, display forecast
    function opac(){
-     document.querySelectorAll('.loader')[0].style.opacity = 0;
-     document.querySelectorAll('.forecast')[0].style.opacity = 1;
+     document.querySelectorAll('.loader')[0].style.display = 'none';
+     document.getElementById('t1').checked = true;
    }
 
    // Could not obtain location
@@ -48,6 +48,7 @@ var haveGeo = false;
      document.querySelectorAll('.currently .temp')[0].innerHTML = forecast.currently.temperature.toString().split('.')[0] + '<span class="deg">°F</span>';
      document.querySelectorAll('.next-day .summary')[0].textContent = forecast.hourly.summary;
      document.querySelectorAll('.next-week .summary')[0].textContent = forecast.daily.summary;
+     document.querySelectorAll('.offline-timestamp')[0].textContent = forecast.currently.time;
      opac();
    }
 
@@ -70,7 +71,9 @@ var haveGeo = false;
 
        // Crude offline check. SW will never cache check.json
        fetch('check.json').catch(function(){
-         document.querySelectorAll('.currently')[0].innerHTML = '<h2>It looks like you\'re offline. <br>Reconnect to get the latest forecast!</h2>' + document.querySelectorAll('.currently')[0].innerHTML;
+         var date = new Date(parseInt(document.querySelectorAll('.offline-timestamp')[0].textContent) * 1000);
+         document.querySelectorAll('.offline-timestamp')[0].textContent = date.toDateString();
+         document.querySelectorAll('.offline')[0].style.display = 'block';
        });
 
 

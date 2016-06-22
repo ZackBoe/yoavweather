@@ -25,10 +25,9 @@ body {
 
 // Loading animation
 .loader {
-  width: 0;
+  width: 50%;
   height: 0;
-  right: 0;
-  position: absolute;
+  position: relative;
   border-style: solid;
   border-width: 100px 0 0 100px;
   border-color: white transparent transparent transparent;
@@ -43,30 +42,22 @@ body {
 }
 
 // Info block
-.info {
+.about {
   text-transform: uppercase;
   font-size: 90%;
   text-align: center;
 
   a, a:visited {
-    color: white;
+    color: black;
   }
 }
 
 // Forecast Styles
 .forecast {
-  opacity: 0;
   font-family: 'Lato', sans-serif;
-  width: 325px;
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  position: absolute;
-  bottom: 0;
-  color: white;
+  color: black;
   padding: 10px;
+  margin-top: -8%;
   transition: opacity 0.2s ease;
 
   section { width: 100%; }
@@ -75,31 +66,31 @@ body {
   h1 { margin: 0; font-weight: 400; }
 
   .icon {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     position: absolute;
-    padding-top: 5px;
-    margin-left: 10px;
+    left: 0;
   }
 
   .temp {
     display: inline-block;
     padding-top: 20px;
-    font-size: 3em;
 
     &:after {
       content: 'and';
       padding-left: 10%;
-      font-weight: 200;
-      font-size: 90%;
     }
   }
 
-  .summary {
-    width: 275px;
-    margin: 0;
+  &.currently .summary {
+    margin: 0 0 0 50px;
     padding: 15px 0 15px;
     font-size: 2.5em;
+  }
+
+  .summary {
+    font-weight: 400;
+    font-size: 2em;
   }
 
   .city {
@@ -111,61 +102,116 @@ body {
 
 }
 
-// Off-canvas full forecast
-.off {
-  overflow: hidden;
-  left: -325px;
+.card {
+  background: white;
+  padding: .5em;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.offline { display: none; }
+
+main { 
   position: absolute;
-  width: 325px;
-  height: 100vh;
-  background: #374046;
-  transition: left .5s ease;
-
-  section {
-    border-bottom: 1px solid white;
-    margin-bottom: 10px;
-  }
-
-  .forecast { opacity: 1; }
-  .forecast .currently h1 { text-transform: uppercase; }
-  .forecast .summary { font-size: 1.5em; }
-
-  .toggle-label { text-align: center; }
+  bottom: 1em;
+  left: 1em;
+  
+  width: 500px;
+  height: 12em;
 }
 
-// Off-canvas toggle
-.toggle { display: none; }
-.toggle-label {
-  color: white;
+main ul {
+  list-style-type: none;
+  padding: 0;
+  margin: .2em 0 1em;
   width: 100%;
-  font-weight: 200;
-  text-transform: uppercase;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-.toggle:checked ~ .off {
-	left: 0;
+main ul li {
+  padding: 10px 0 2px;
+  width: 7em;
+  text-align: center;
+  border-bottom: 1px solid black;
+  color: black;
 }
 
-
-@media all and (max-width: 1000px) {
-    html { background-position: right bottom, center center;
-
-      transition: background-position 0.5s ease; }
+main ul li label {
+  width: 100%;
+  display: block;
+  cursor: pointer;
 }
 
+main input {
+  display: none;
+}
+
+main ul li:hover {
+  color: #03a9f4;
+  border-bottom: 1px solid #03a9f4;
+}
+
+section { display: none; }
+
+#t1:checked ~ ul li.l1 {
+  color: #03a9f4; border-bottom: 1px solid #03a9f4;
+}
+#t1:checked ~ .currently { display: block; }
+#t2:checked ~ ul li.l2 {
+  color: #03a9f4; border-bottom: 1px solid #03a9f4;
+}
+#t2:checked ~ .next-day { display: block; }
+#t3:checked ~ ul li.l3 {
+  color: #03a9f4; border-bottom: 1px solid #03a9f4;
+}
+#t3:checked ~ .next-week { display: block; }
+#t4:checked ~ ul li.l4 {
+  color: #03a9f4; border-bottom: 1px solid #03a9f4;
+}
+#t4:checked ~ .about { display: block; }
+
+@media all and (max-width: 1450px) {
+    html { 
+      background-position: right bottom, center center;
+      transition: background-position 0.5s ease; 
+    }
+}
+
+@media all and (max-width: 930px) {
+    html { 
+      background-position: center center, center center;
+      transition: background-position 0.5s ease; 
+    }
+}
+
+@media all and (max-width: 930px) {
+  .card { width: 95%; height: 32%;}
+  .card .forecast { margin-top: -5%; }
+}
 @media all and (max-width: 700px) {
-
-  .toggle:checked ~ .off {
-  	width: 100%;
+  
+  html { 
+    background-position: center 35%, center center;
+    transition: background-position 0.5s ease; 
   }
-
+  
+  .card { 
+    left: 0;
+    width: 100%; 
+    height: 40%; 
+    
+    ul li { width: 40%; }
+  
+  }
   .forecast {
-    width: 100%;
-
-    h1, .temp:after, .toggle-label, p { font-weight: 600; }
-
+    h1 { font-size: 1.5em; }
+    .icon { width: 50px; height: 50px; }
+    .summary { font-size: 1.5em; }
+    &.currently .summary { font-size: 1.5em; margin: -5px 0 0 30px; }
+    
   }
-
 }
 
 // Spinkit Style
