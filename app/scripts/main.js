@@ -66,8 +66,12 @@ var haveGeo = false;
 
    // Grab location
    window.onload = function () {
-       var geoOpts = { enableHighAccuracy: true, timeout: 10000, maximumAge: 600000 };
-       geolocator.locate(onGeoSuccess, onGeoError, 2, geoOpts);
+       geolocator.config({ language: 'en', google: { version: '3', key: 'AIzaSyB92rP9EmypOx7m9FvgAKFTMv513E4rPLI ' }});
+       var geoOpts = { enableHighAccuracy: false, timeout: 10000, maximumAge: 600000, addressLookup: true, fallbackToIP: true };
+       geolocator.locate(geoOpts, function(err, location){
+         if(err){ onGeoError(err); }
+         onGeoSuccess(location);
+       });
 
        // Crude offline check. SW will never cache check.json
        fetch('check.json').catch(function(){
